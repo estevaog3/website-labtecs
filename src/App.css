@@ -1,0 +1,23 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.App > main {
+  max-width: 400px;
+  width: 80%;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 2em #eee;
+  padding: 1em;
+  border-radius: 2em;
+}
+
+.heading {
+  font-weight: 400;
+  margin: 0;
+}
