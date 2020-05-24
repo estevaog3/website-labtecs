@@ -1,0 +1,24 @@
+.spin {
+  position: absolute;
+  top: 100%;
+  margin-top: 0.5em;
+  left: 45%;
+
+  --size: 2em;
+  --animation-time: 2s;
+  border: 0.4em solid #fff;
+  border-radius: 50%;
+  border-top: 0.4em solid #ccc;
+  width: var(--size);
+  height: var(--size);
+  animation: spinner var(--animation-time) linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
