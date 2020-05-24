@@ -47,11 +47,12 @@ function App() {
           beginFormSubmition={beginFormSubmition}
           endFormSubmition={endFormSubmition}
         >
-          <Number label="1º número" min={1} max={10} />
-          <Number label="2º número" min={1} max={10} />
-          <Number label="3º número" min={1} max={10} />
-          <Number label="4º número" min={1} max={10} />
-          <Number label="5º número" min={1} max={10} />
+          <Number isRequired label="1º número" min={1} max={10} />
+          <Number isRequired label="2º número" min={1} max={10} />
+          <Number isRequired label="3º número" min={1} max={10} />
+          <Number isRequired label="4º número" min={1} max={10} />
+          <Number isRequired label="5º número" min={1} max={10} />
+          <p className="small-gray-text">* Campos obrigatórios</p>
         </NumbersForm>
         {provideFeedback()}
       </main>
