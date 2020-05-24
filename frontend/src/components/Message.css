@@ -1,0 +1,17 @@
+.message {
+  font-weight: 400;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-top: 1em;
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
