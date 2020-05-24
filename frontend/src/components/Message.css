@@ -8,10 +8,6 @@
   transform: translateX(-50%);
 }
 
-.success {
-  color: green;
-}
-
 .error {
   color: red;
 }
