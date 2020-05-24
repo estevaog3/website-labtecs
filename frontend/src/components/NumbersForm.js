@@ -1,5 +1,6 @@
 import React, { Component, cloneElement } from "react";
 import "./NumbersForm.css";
+import api from "../services/api";
 
 export default class NumbersForm extends Component {
   constructor(props) {
@@ -7,10 +8,17 @@ export default class NumbersForm extends Component {
     this.state = { values: [...Array(props.children.length)].map((_) => "") };
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    // TODO: fazer a requisição ao backend que irá salvar 'this.state' no banco de dados
-    console.log(this.state);
+    this.props.beginFormSubmition();
+    try {
+      await api.post("/numbers/store", {
+        values: this.state.values,
+      });
+      this.props.endFormSubmition(true);
+    } catch (error) {
+      this.props.endFormSubmition(false);
+    }
   };
 
   handleChange = (event, index) => {
