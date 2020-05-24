@@ -5,7 +5,15 @@ import api from "../services/api";
 export default class NumbersForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { values: [...Array(props.children.length)].map((_) => "") };
+    this.ChildNumbers = props.children.filter(
+      (child) => child.type.name === "Number"
+    );
+    this.OtherChilds = props.children.filter(
+      (child) => child.type.name !== "Number"
+    );
+    this.state = {
+      values: [...Array(this.ChildNumbers.length)].map((_) => ""),
+    };
   }
 
   handleSubmit = async (event) => {
@@ -32,13 +40,14 @@ export default class NumbersForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        {this.props.children.map((child, i) =>
+        {this.ChildNumbers.map((child, i) =>
           cloneElement(child, {
             value: this.state.values[i],
             key: i,
             handleChange: (event) => this.handleChange(event, i),
           })
         )}
+        {[...this.OtherChilds]}
         <button type="submit">SUBMETER</button>
       </form>
     );
