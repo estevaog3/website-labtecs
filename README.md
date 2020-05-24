@@ -15,13 +15,16 @@
 
 Estes programas devem estar instalados previamente no seu computador para executar este projeto:
 
-- [yarn](https://yarnpkg.com/) (ou [npm](https://yarnpkg.com/)), [node](https://nodejs.org/en/), [MongoDB Community Server](https://www.mongodb.com/download-center/community)
+- `git`, [yarn](https://yarnpkg.com/) (ou [npm](https://yarnpkg.com/)), [node](https://nodejs.org/en/), [MongoDB Community Server](https://www.mongodb.com/download-center/community)
 
 ### Passo a passo
 
 0. Abra o terminal (linha de comando)
 
 1. Clone o repositório
+```
+git clone https://github.com/EstevaoCostaG3/website-labtecs.git
+```
 
 2. Mova para o diretório do projeto
 
