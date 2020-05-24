@@ -23,9 +23,14 @@ export default class NumbersForm extends Component {
       await api.post("/numbers/store", {
         values: this.state.values,
       });
-      this.props.endFormSubmition(true);
+      this.props.endFormSubmition({
+        isSuccess: true,
+        totalSumOfNumbers: this.state.values.reduce(
+          (previous, current) => previous + current
+        ),
+      });
     } catch (error) {
-      this.props.endFormSubmition(false);
+      this.props.endFormSubmition({ isSuccess: false });
     }
   };
 
