@@ -8,11 +8,11 @@ import Message from "./components/Message";
 function App() {
   const [isFormSubmited, setIsFormSubmited] = useState(false);
   const [isFormPending, setIsFormPending] = useState(false);
-  const [isFormSubmitedWithSuccess, setIsFormSubmitedWithSuccess] = useState(
-    undefined
-  );
+  const [formResult, setFormResult] = useState({
+    isSuccess: undefined,
+    totalSumOfNumbers: undefined,
+  });
 
-  const successMessage = "Tudo certo";
   const errorMessage = "Houve um erro durante a operação";
 
   const beginFormSubmition = () => {
@@ -20,10 +20,26 @@ function App() {
     setIsFormPending(true);
   };
 
-  const endFormSubmition = (isSuccess) => {
+  const endFormSubmition = (result) => {
     setIsFormPending(false);
     setIsFormSubmited(true);
-    setIsFormSubmitedWithSuccess(isSuccess);
+    setFormResult(result);
+  };
+
+  const getResult = () => {
+    let message;
+    if (formResult.totalSumOfNumbers <= 10) {
+      message = "Não Urgência";
+    } else if (formResult.totalSumOfNumbers <= 20) {
+      message = "Pouca Urgência";
+    } else if (formResult.totalSumOfNumbers <= 30) {
+      message = "Urgência Média";
+    } else if (formResult.totalSumOfNumbers <= 40) {
+      message = "Urgência Alta";
+    } else {
+      message = "Emergência";
+    }
+    return `${formResult.totalSumOfNumbers}: ${message}`;
   };
 
   const provideFeedback = () => {
@@ -31,10 +47,10 @@ function App() {
       return null;
     }
     if (isFormSubmited) {
-      return isFormSubmitedWithSuccess ? (
-        <Message isSuccess={isFormSubmitedWithSuccess} value={successMessage} />
+      return formResult.isSuccess ? (
+        <Message isSuccess={formResult.isSuccess} value={getResult()} />
       ) : (
-        <Message isSuccess={isFormSubmitedWithSuccess} value={errorMessage} />
+        <Message isSuccess={formResult.isSuccess} value={errorMessage} />
       );
     }
     return <Spin />;
