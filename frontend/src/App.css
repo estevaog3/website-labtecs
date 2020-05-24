@@ -15,6 +15,7 @@
   box-shadow: 0 0 2em #eee;
   padding: 1em;
   border-radius: 2em;
+  position: relative;
 }
 
 .heading {
