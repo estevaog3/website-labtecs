@@ -26,22 +26,22 @@ Estes programas devem estar instalados previamente no seu computador para execut
 git clone https://github.com/EstevaoCostaG3/website-labtecs.git
 ```
 
-2. Mova para o diretório do projeto
+2. Mova para o diretório do projeto e instale as dependências do backend e do frontend
 
 ```
-cd website-labtecs
+cd website-labtecs && cd backend && yarn install && cd ../frontend && yarn install 
 ```
 
 3. Inicie o banco de dados localmente no diretório `backend`:
 
 ```
-cd backend && yarn mongo
+cd ../backend && yarn mongo
 ```
 
 ou, com npm:
 
 ```
-cd backend && npm run mongo
+cd ../backend && npm run mongo
 ```
 
 4. Abra outro terminal, novamente no diretório `website-labtecs`
