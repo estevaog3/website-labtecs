@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "nodemon src/server.js",
-    "mongo": "mongod --dbpath=./db"
+    "mongo": "mkdir db; mongod --dbpath=./db"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
